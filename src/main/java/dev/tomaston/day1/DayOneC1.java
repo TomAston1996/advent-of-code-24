@@ -46,6 +46,7 @@ public class DayOneC1 {
                 minHeapLeft.add(numbers[0]);
                 minHeapRight.add(numbers[1]);
             }
+            scanner.close();
         } catch (FileNotFoundException e) {
             System.out.println("Input file not found...");
             throw new RuntimeException(e);
