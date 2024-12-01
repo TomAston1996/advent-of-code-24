@@ -16,7 +16,7 @@ public class DayOne {
 
     //2nd challenge vars
     private final HashMap<Integer, Integer> counts;
-    private ArrayList<Integer> secondListNumbers;
+    private final ArrayList<Integer> secondListNumbers;
 
     /**
      * @param config challenge config
@@ -128,6 +128,4 @@ public class DayOne {
         }
         return ans;
     }
-
-
 }
