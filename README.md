@@ -7,7 +7,7 @@
 
 # 🎄 Advent of Code 2024
 
-Advent of Code is an annual set of Christmas-themed computer programming challenges that follow an Advent calendar. Puzzles consist of two parts that must be solved in order, with the second part not revealed to the user until the first part is solved correctly. Participants are awarded a silver star for completing the first part of a daily puzzle, and a gold star after completing the second.
+[Advent of Code](https://adventofcode.com/) is an annual set of Christmas-themed computer programming challenges that follow an Advent calendar. Puzzles consist of two parts that must be solved in order, with the second part not revealed to the user until the first part is solved correctly. Participants are awarded a silver star for completing the first part of a daily puzzle, and a gold star after completing the second.
 
 
 ## 🧑‍💻 Tech Stack
