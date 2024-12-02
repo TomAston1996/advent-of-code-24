@@ -27,6 +27,14 @@ public class DayTwo {
         System.out.println("D2C1 Answer: " + ans);
     }
 
+    public void secondChallenge() {
+        int ans = 0;
+        for (List<Integer> report : reports) {
+            if (validateReportsWithDampener(report)) ans++;
+        }
+        System.out.println("D2C2 Answer: " + ans);
+    }
+
     /**
      * Read input file and parse reports/levels
      */
@@ -61,11 +69,26 @@ public class DayTwo {
         return isValidDecreasing || isValidIncreasing;
     }
 
+    private  boolean validateReportsWithDampener(List<Integer> report) {
+        for (int i = 0; i < report.size(); i++) {
+            int temp = report.remove(i);
+
+            boolean isValidIncreasing = checkIncreasing(report);
+            boolean isValidDecreasing = checkDecreasing(report);
+
+            if (isValidDecreasing || isValidIncreasing) return true;
+
+            report.add(i, temp);
+        }
+        return false;
+    }
+
     private boolean checkIncreasing(List<Integer> report) {
         int prev = report.getFirst();
         for (int i = 1; i < report.size(); i++) {
             int curr = report.get(i);
-            if (curr <= prev || Math.abs(curr - prev) > 3) return false;
+            boolean isBad = curr <= prev || Math.abs(curr - prev) > 3;
+            if (isBad) return false;
             prev = curr;
         }
         return true;
@@ -75,7 +98,8 @@ public class DayTwo {
         int prev = report.getFirst();
         for (int i = 1; i < report.size(); i++) {
             int curr = report.get(i);
-            if (curr >= prev || Math.abs(curr - prev) > 3) return false;
+            boolean isBad = curr >= prev || Math.abs(curr - prev) > 3;
+            if (isBad) return false;
             prev = curr;
         }
         return true;
