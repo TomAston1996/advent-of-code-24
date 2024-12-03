@@ -3,6 +3,7 @@ package dev.tomaston;
 import dev.tomaston.common.ChallengeConfig;
 import dev.tomaston.day1.DayOne;
 import dev.tomaston.day2.DayTwo;
+import dev.tomaston.day3.DayThree;
 
 /**
  *   ___ ______ _   _ _____ _   _ _____   ___________     _____ ___________ _____
@@ -16,8 +17,7 @@ import dev.tomaston.day2.DayTwo;
 public class Main {
     public static void main(String[] args) {
         ChallengeConfig config = new ChallengeConfig();
-        DayTwo dayTwo = new DayTwo(config);
-        dayTwo.firstChallenge();
-        dayTwo.secondChallenge();
+        DayThree dayThree = new DayThree(config);
+        dayThree.firstChallenge();
     }
 }
