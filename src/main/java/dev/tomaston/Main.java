@@ -5,6 +5,7 @@ import dev.tomaston.day1.DayOne;
 import dev.tomaston.day2.DayTwo;
 import dev.tomaston.day3.DayThree;
 import dev.tomaston.day4.DayFour;
+import dev.tomaston.day5.DayFive;
 
 /**
  *   ___ ______ _   _ _____ _   _ _____   ___________     _____ ___________ _____
@@ -18,8 +19,7 @@ import dev.tomaston.day4.DayFour;
 public class Main {
     public static void main(String[] args) {
         ChallengeConfig config = new ChallengeConfig();
-        DayFour dayFour = new DayFour(config);
-        dayFour.firstChallenge();
-        dayFour.secondChallenge();
+        DayFive dayFive = new DayFive(config);
+        dayFive.firstChallenge();
     }
 }
