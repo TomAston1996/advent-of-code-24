@@ -21,5 +21,6 @@ public class Main {
         ChallengeConfig config = new ChallengeConfig();
         DayFive dayFive = new DayFive(config);
         dayFive.firstChallenge();
+        dayFive.secondChallenge();
     }
 }
