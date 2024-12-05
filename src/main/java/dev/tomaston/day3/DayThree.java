@@ -25,14 +25,26 @@ public class DayThree {
 
     public void firstChallenge(){
         int ans = 0;
+        boolean ignore = false;
         for (String line : lines) {
             String[] matchingStatements = findAllValidExpressions(line);
-
             for (String statement : matchingStatements) {
-                List<String> numbers = findIntegers(statement);
-                assert(numbers.size() == 2);
-                ans += Integer.parseInt(numbers.get(0)) * Integer.parseInt(numbers.get(1));
+                System.out.println(statement);
+                if (statement.equals("do()")) {
+                    ignore = false;
+                    System.out.println("not ignoring anymore");
+                } else if (statement.equals("don't()")) {
+                    ignore = true;
+                    System.out.println("ignoring");
+                }
+                if (!ignore) {
+                    List<String> numbers = findIntegers(statement);
+                    if (numbers.size() != 2) continue;
+                    ans += Integer.parseInt(numbers.get(0)) * Integer.parseInt(numbers.get(1));
+                }
             }
+
+            printMatchStrings(matchingStatements);
         }
         System.out.println("D3C1 Answer: " + ans);
     }
@@ -54,7 +66,7 @@ public class DayThree {
     }
 
     private String[] findAllValidExpressions(String line) {
-        return Pattern.compile("mul\\(\\d{1,3},\\d{1,3}\\)")
+        return Pattern.compile("mul\\(\\d{1,3},\\d{1,3}\\)|do\\(\\)|don't\\(\\)")
                 .matcher(line)
                 .results()
                 .map(MatchResult::group)
