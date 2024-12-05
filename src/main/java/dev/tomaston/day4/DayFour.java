@@ -44,12 +44,22 @@ public class DayFour {
         int total = 0;
         for (int i = 0; i < matrix.size(); i++) {
             for (int j = 0; j < matrix.get(i).size(); j++) {
-                System.out.print(matrix.get(i).get(j));
                 if (matrix.get(i).get(j) != 'X') continue;
                 total += checkAllDirections(i, j);
             }
         }
         System.out.println("D4C1 Answer: " + total);
+    }
+
+    public void secondChallenge() {
+        int total = 0;
+        for (int i = 0; i < matrix.size(); i++) {
+            for (int j = 0; j < matrix.get(i).size(); j++) {
+                if (matrix.get(i).get(j) != 'A') continue;
+                total += checkXMasDirections(i, j) ? 1 : 0;
+            }
+        }
+        System.out.println("D4C2 Answer: " + total);
     }
     
     private int checkAllDirections(int row, int col) {
@@ -89,5 +99,20 @@ public class DayFour {
         if (matrix.get(row).get(col) != word.charAt(index)) return false;
         if (index == word.length() - 1) return true;
         return checkDirection(row + rowAdd, col + colAdd, rowAdd, colAdd, index + 1, word);
+    }
+
+    private boolean checkXMasDirections(int row, int col) {
+        if (row - 1 < 0 || row + 1 > matrix.size() - 1) return false;
+        if (col - 1 < 0 || col + 1 > matrix.get(row).size() - 1) return false;
+
+        //check left diagonal
+        boolean leftOpt1 = matrix.get(row - 1).get(col - 1) == 'M' && matrix.get(row + 1).get(col + 1) == 'S';
+        boolean leftOpt2 = matrix.get(row - 1).get(col - 1) == 'S' && matrix.get(row + 1).get(col + 1) == 'M';
+
+        //check right diagonal
+        boolean rightOpt1 = matrix.get(row + 1).get(col - 1) == 'M' && matrix.get(row - 1).get(col + 1) == 'S';
+        boolean rightOpt2 = matrix.get(row + 1).get(col - 1) == 'S' && matrix.get(row - 1).get(col + 1) == 'M';
+
+        return (leftOpt1 || leftOpt2) && (rightOpt1 || rightOpt2);
     }
 }
