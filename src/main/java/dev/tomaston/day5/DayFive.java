@@ -30,7 +30,6 @@ public class DayFive {
         System.out.println("D5C2 Answer: " + ans2);
     }
 
-
     private void parseInput() {
         try {
             String INPUT_FILE = "files/day5-input.txt";
